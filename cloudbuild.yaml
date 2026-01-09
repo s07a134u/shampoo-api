@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'asia-northeast2-docker.pkg.dev/$PROJECT_ID/shampoo-api/shampoo-api:latest', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'asia-northeast2-docker.pkg.dev/$PROJECT_ID/shampoo-api/shampoo-api:latest']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'shampoo-api', '--image', 'asia-northeast2-docker.pkg.dev/$PROJECT_ID/shampoo-api/shampoo-api:latest', '--region', 'asia-northeast2', '--platform', 'managed', '--allow-unauthenticated']
+
+images:
+  - 'asia-northeast2-docker.pkg.dev/$PROJECT_ID/shampoo-api/shampoo-api:latest'
