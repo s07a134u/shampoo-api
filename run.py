@@ -6,6 +6,7 @@ BUCKET_NAME = "shampoo_api"          # アップロード先のバケット名
 LOCAL_FILE = "shampoo.csv"             # アップロードするファイル名
 DESTINATION_BLOB = "shampoo.csv"  # GCS上で保存するファイル名
 
+
 def run():
     OUTPUT_CSV = RakutenAPI()
     print(f"{OUTPUT_CSV}を出力しました")
