@@ -7,7 +7,7 @@ steps:
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
-    args: ['run', 'jobs', 'deploy', 'shampoo-api', '--image', 'asia-northeast2-docker.pkg.dev/$PROJECT_ID/shampoo-api/shampoo-api:latest', '--region', 'asia-northeast2', '--platform', 'managed', '--allow-unauthenticated']
+    args: ['run', 'jobs', 'deploy', 'shampoo-api', '--image', 'asia-northeast2-docker.pkg.dev/$PROJECT_ID/shampoo-api/shampoo-api:latest', '--region', 'asia-northeast2', '--platform', 'managed', '--allow-unauthenticated', '--update-secrets','GOOGLE_APPLICATION_CREDENTIALS=gcs-key:latest:/secrets/key.json']
 
   
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
