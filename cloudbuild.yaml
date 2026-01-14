@@ -9,7 +9,7 @@ steps:
     entrypoint: gcloud
     args: ['run', 'jobs', 'deploy', 'shampoo-api', '--image', 'asia-northeast2-docker.pkg.dev/$PROJECT_ID/shampoo-api/shampoo-api:latest', '--region', 'asia-northeast2', 
       
-# Secret を「ファイル」として /secrets/key.json に配置
+      # Secret を「ファイル」として /secrets/key.json に配置
       "--set-secrets=/secrets/key.json=gcs-key:latest",
 
       # Google SDK が自動でこのパスを読むように環境変数を設定
