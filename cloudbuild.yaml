@@ -9,10 +9,10 @@ steps:
     entrypoint: gcloud
     args: ['run', 'jobs', 'deploy', 'shampoo-api', '--image', 'asia-northeast2-docker.pkg.dev/$PROJECT_ID/shampoo-api/shampoo-api:latest', '--region', 'asia-northeast2', 
 # 1) シークレットをボリュームとして定義（latest を key.json という名前で置く）
-      ' --add-volume=name=gcs-key-vol,secret=gcs-key,items=version=latest,path=key.json',
+      '--add-volume=name=gcs-key-vol,secret=gcs-key,items=version=latest,path=key.json',
 
       # 2) そのボリュームを /secrets にマウント
-      ' --add-volume-mount=volume=gcs-key-vol,mount-path=/secrets,read-only',
+      '--add-volume-mount=volume=gcs-key-vol,mount-path=/secrets,read-only',
 
       # 3) SDK が読むパスを環境変数で指定
       '--set-env-vars=GOOGLE_APPLICATION_CREDENTIALS=/secrets/key.json']
